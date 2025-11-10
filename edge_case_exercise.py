@@ -1,12 +1,11 @@
-my_list = (0, 0, 1, 0)
-
-def move(my_list, direction):
-    index = my_list[2]
+def move(my_list, direction=None):
+    index_of_one = my_list.index(1)
     
-    if direction == "left":
-        if index > 0:
-            my_list[index], my_list[index - 1] = 0, 1
-            index = my_list[1]
-            if index > 0:
-                my_list[index], my_list[index - 1] = 1
-             return my_list
+    if direction == 'right' and index_of_one != len(my_list) - 1:
+        my_list[index_of_one] = 0
+        my_list[index_of_one + 1] = 1
+    elif direction == 'left' and index_of_one != 0:
+        my_list[index_of_one] = 0
+        my_list[index_of_one - 1] = 1
+
+    return my_list
